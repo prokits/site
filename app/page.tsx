@@ -1,6 +1,5 @@
 import DNSSection from "@/components/homepage/dns-section";
 import GlobeExperience from "@/components/homepage/globe/experience";
-import Image from "next/image";
 
 export default function Home() {
   return (

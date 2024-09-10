@@ -74,7 +74,7 @@ export default function Component() {
     )
 }
 
-function MenuIcon(className: string) {
+function MenuIcon({ className }: { className?: string }) {
     return (
         <svg
             className={className}
