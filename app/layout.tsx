@@ -16,8 +16,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Prokits",
-  description: "",
+  title: "Prokits Digital | Infrastructure for the connected world",
+  description: "Shared technology components supporting application systems and virtual work systems.",
 };
 
 export default function RootLayout({
