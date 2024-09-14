@@ -1,12 +1,20 @@
+"use client";
+
+import { usePathname } from 'next/navigation'
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
+import { cn } from '@/lib/utils';
 
-export default function Component() {
+export default function NavBar() {
+    const pathname = usePathname()
+
+    const background = pathname == "/" ? "bg-black" : "bg-gray-900"
+
     return (
-        <div className="border-t-4 border-red_branding bg-black">
-            <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 max-w-7xl mx-auto ">
+        <div className={`border-t-4 border-red_branding ${background}`}>
+            <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 py-2 max-w-7xl mx-auto ">
                 <Sheet>
                     <SheetTrigger asChild>
                         <Button variant="outline" size="icon" className="lg:hidden">
@@ -20,53 +28,65 @@ export default function Component() {
                             <span className="sr-only">Acme Inc</span>
                         </Link>
                         <div className="grid gap-2 py-6">
-                            <Link href="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
-                                Home
+                            <Link href="/dns" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+                                DNS
                             </Link>
                             <Link href="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+                                TOR
+                            </Link>
+                            <Link href="/about" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
                                 About
                             </Link>
-                            <Link href="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
-                                Services
-                            </Link>
-                            <Link href="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
-                                Contact
+                            <Link href="/docs" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+                                Docs
                             </Link>
                         </div>
                     </SheetContent>
                 </Sheet>
-                <Link href="#" className="mr-6 hidden lg:flex" prefetch={false}>
+                <Link href="/" className="mr-6 hidden lg:flex" prefetch={false}>
                     <Image src="/logo/logo_dark.svg" alt="Prokits" width={150} height={100} />
                     <span className="sr-only">Acme Inc</span>
                 </Link>
                 <nav className="ml-auto hidden lg:flex gap-6">
                     <Link
-                        href="#"
-                        className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
+                        href="/dns"
                         prefetch={false}
+                        className={cn(
+                            "py-2 text-lg",
+                            pathname == "/dns" ? "text-red_branding border-b-4 border-red_branding pb-0 font-bold" : "text-white"
+                        )}
                     >
-                        Home
+                        DNS
                     </Link>
                     <Link
-                        href="#"
-                        className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
+                        href=""
                         prefetch={false}
+                        className={cn(
+                            "py-2 text-lg",
+                            pathname == "/tor" ? "text-red_branding border-b-4 border-red_branding pb-0 font-bold" : "text-white"
+                        )}
+                    >
+                        TOR
+                    </Link>
+                    <Link
+                        href="/about"
+                        prefetch={false}
+                        className={cn(
+                            "py-2 text-lg",
+                            pathname == "/about" ? "text-red_branding border-b-4 border-red_branding pb-0 font-bold" : "text-white"
+                        )}
                     >
                         About
                     </Link>
                     <Link
-                        href="#"
-                        className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
+                        href="/docs"
                         prefetch={false}
+                        className={cn(
+                            "py-2 text-lg",
+                            pathname == "/docs" ? "text-red_branding border-b-4 border-red_branding pb-0 font-bold" : "text-white"
+                        )}
                     >
-                        Services
-                    </Link>
-                    <Link
-                        href="#"
-                        className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                        prefetch={false}
-                    >
-                        Contact
+                        Docs
                     </Link>
                 </nav>
             </header>

@@ -8,7 +8,7 @@ const World = dynamic(() => import("../../ui/globe").then((m) => m.World), {
 });
 
 export default function GlobeExperience() {
-    const globeConfig = {
+    const globeConfigOld = {
         pointSize: 4,
         globeColor: "#062056",
         showAtmosphere: true,
@@ -30,6 +30,30 @@ export default function GlobeExperience() {
         autoRotate: true,
         autoRotateSpeed: 0.5,
     };
+
+    const globeConfig = {
+        pointSize: 4,
+        globeColor: "#2b0d19", // A dark muted red to blend with black background
+        showAtmosphere: true,
+        atmosphereColor: "#FFFFFF", // Softer red for atmosphere, slightly muted
+        atmosphereAltitude: 0.1,
+        emissive: "#2b0d12", // Darker shade of red for a subtler glow
+        emissiveIntensity: 0.1,
+        shininess: 0.8,
+        polygonColor: "rgba(232,58,74,0.7)", // Muted translucent red
+        ambientLight: "#444444", // Dark gray ambient light to enhance contrast
+        directionalLeftLight: "#ffffff",
+        directionalTopLight: "#ff9999", // Softer red light from the top
+        pointLight: "#ffb3b3", // Subtle warm red light
+        arcTime: 1000,
+        arcLength: 0.9,
+        rings: 1,
+        maxRings: 3,
+        initialPosition: { lat: 22.3193, lng: 114.1694 },
+        autoRotate: true,
+        autoRotateSpeed: 0.5,
+    };
+
     const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
     const sampleArcs = [
         {
@@ -395,8 +419,9 @@ export default function GlobeExperience() {
     ];
 
     return (
-        <div className=" py-20 h-screen md:h-auto relative w-full">
-            <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
+        <div className="md:py-20 h-screen md:h-auto relative w-full">
+            <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4 flex flex-col-reverse md:flex-row items-center justify-between">
+                {/* Left: Text Section */}
                 <motion.div
                     initial={{
                         opacity: 0,
@@ -409,22 +434,30 @@ export default function GlobeExperience() {
                     transition={{
                         duration: 1,
                     }}
-                    className="div"
+                    className="z-50 flex-1 flex flex-col justify-center px-4 md:p-0"
                 >
-                    <p className="text-sm md:text-sm font-normal text-[#F0E1E1] max-w-md mt-2 w-[32ch] pb-2">
+                    <p className="text-sm text-[#F0E1E1] max-w-md mt-2 w-full md:w-[32ch] pb-2 mx-auto md:mx-0">
                         Shared technology components supporting application systems and virtual work systems.
                     </p>
-                    <h2 className="text-xl md:text-4xl font-bold text-black dark:text-white">
-                        Infrastructure for the connected world.
+                    <h2 className="text-4xl md:text-6xl font-bold text-black dark:text-white">
+                        Infrastructure for the
+                        connected world.
                     </h2>
                 </motion.div>
-                <div>
+
+                {/* Right/Top: Globe Section */}
+                <div className="relative flex-1  md:h-full md:mb-0 w-full">
+                    {/* Gradient Layer */}
                     <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
-                    <div className="absolute w-full right-0  -bottom-20 h-72 md:h-full z-10">
+
+                    {/* Globe Component */}
+                    <div className="absolute w-full bottom-0 right-0 h-72 md:h-full z-10">
                         <World data={sampleArcs} globeConfig={globeConfig} />
                     </div>
                 </div>
             </div>
         </div>
+
+
     );
 }
