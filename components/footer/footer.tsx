@@ -1,8 +1,20 @@
+"use client";
+
+import { usePathname } from 'next/navigation'
 import Image from "next/image";
+import { cn } from '@/lib/utils';
 
 export default function Footer() {
+    const pathname = usePathname()
+    const background = pathname == "/" ? "bg-black" : "bg-gray-900"
+
     return (
-        <footer className="bg-white dark:bg-gray-900">
+        <footer className={cn(
+            "border-t-4 border-red_branding",
+            background
+        )}>
+
+
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">

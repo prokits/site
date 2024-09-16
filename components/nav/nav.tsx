@@ -9,7 +9,6 @@ import { cn } from '@/lib/utils';
 
 export default function NavBar() {
     const pathname = usePathname()
-
     const background = pathname == "/" ? "bg-black" : "bg-gray-900"
 
     return (

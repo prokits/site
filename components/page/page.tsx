@@ -24,6 +24,17 @@ export function PageTitle({ className, children }: { className?: string, childre
     )
 }
 
+export function PageSubtitle({ className, children }: { className?: string, children: React.ReactNode }) {
+    return (
+        <h2 className={cn(
+            " w-full pt-2 pb-1 text-2xl font-semibold",
+            className
+        )}>
+            {children}
+        </h2>
+    )
+}
+
 export function PageContent({ className, children }: { className?: string, children: React.ReactNode }) {
     return (
         <main className={cn(
