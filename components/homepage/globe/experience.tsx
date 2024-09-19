@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
+import { cn } from "@/lib/utils";
+import ShimmerButton from "@/components/magicui/shimmer-button";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { FollowerPointerCard } from "@/components/ui/following-pointer";
+import { Spotlight } from "@/components/ui/spotlight";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import GridPattern from "@/components/magicui/grid-pattern";
 
 const World = dynamic(() => import("../../ui/globe").then((m) => m.World), {
     ssr: false,
@@ -420,6 +426,20 @@ export default function GlobeExperience() {
 
     return (
         <div className="md:py-20 h-screen md:h-auto relative w-full">
+            <Spotlight
+                className="-top-40 left-0 md:left-60 md:-top-20"
+                fill="red"
+            />
+            <GridPattern
+                width={40}
+                height={40}
+                x={-1}
+                y={-1}
+                className={cn(
+                    "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] ",
+                    "-top-40 skew-y-12 inset-x-0 inset-y-[-30%] h-[150%]"
+                )}
+            />
             <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4 flex flex-col-reverse md:flex-row items-center justify-between">
                 {/* Left: Text Section */}
                 <motion.div
@@ -436,13 +456,28 @@ export default function GlobeExperience() {
                     }}
                     className="z-50 flex-1 flex flex-col justify-center px-4 md:p-0"
                 >
-                    <p className="text-sm text-[#F0E1E1] max-w-md mt-2 w-full md:w-[32ch] pb-2 mx-auto md:mx-0">
-                        Shared technology components supporting application systems and virtual work systems.
-                    </p>
-                    <h2 className="text-4xl md:text-6xl font-bold text-black dark:text-white">
+                    <h2 className="text-xl md:text-6xl font-bold text-black dark:text-white md:-mr-10">
                         Infrastructure for the
                         connected world.
                     </h2>
+                    <p className=" text-[#F0E1E1] max-w-md mt-2 w-full md:w-[76ch] pt-4 mb-6 mx-auto md:mx-0">
+                        Shared technology components supporting application systems and virtual work systems.
+                    </p>
+                    {/* <ShimmerButton className="shadow-2xl w-48 mt-4">
+                        <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                            View Services
+                        </span>
+                    </ShimmerButton> */}
+
+                    <HoverBorderGradient
+                        containerClassName="rounded-full"
+                        as="button"
+                        className="dark:bg-black bg-white flex items-center space-x-2"
+                    >
+                        <span className="text-sm font-medium tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                            View Services
+                        </span>
+                    </HoverBorderGradient>
                 </motion.div>
 
                 {/* Right/Top: Globe Section */}
@@ -452,10 +487,13 @@ export default function GlobeExperience() {
 
                     {/* Globe Component */}
                     <div className="absolute w-full bottom-0 right-0 h-72 md:h-full z-10">
-                        <World data={sampleArcs} globeConfig={globeConfig} />
+                        <FollowerPointerCard className="w-full h-full">
+                            <World data={sampleArcs} globeConfig={globeConfig} />
+                        </FollowerPointerCard>
                     </div>
                 </div>
             </div>
+
         </div>
 
 
