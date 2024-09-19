@@ -90,14 +90,22 @@ const config = {
             transform: "translate(calc(100cqw - 100%), 0)",
           },
         },
-         spotlight: {
+        spotlight: {
           "0%": {
             opacity: "0",
             transform: "translate(-72%, -62%) scale(0.5)",
           },
           "100%": {
-          opacity: "1",
+            opacity: "1",
             transform: "translate(-50%,-40%) scale(1)",
+          },
+        },
+        shimmer: {
+          "0%, 90%, 100%": {
+            "background-position": "calc(-100% - var(--shimmer-width)) 0",
+          },
+          "30%, 60%": {
+            "background-position": "calc(100% + var(--shimmer-width)) 0",
           },
         },
       },
@@ -106,7 +114,8 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         slide: "slide var(--speed) ease-in-out infinite alternate",
-         spotlight: "spotlight 2s ease .75s 1 forwards",
+        spotlight: "spotlight 2s ease .75s 1 forwards",
+        shimmer: "shimmer 8s infinite",
       },
     },
   },
@@ -118,7 +127,7 @@ function addVariablesForColors({ addBase, theme }: any) {
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });

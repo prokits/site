@@ -1,13 +1,16 @@
 "use client";
+
 import React from "react";
 import { cn } from "@/lib/utils";
-import ShimmerButton from "@/components/magicui/shimmer-button";
+import { IntroButton } from "./components/intro-button";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { FollowerPointerCard } from "@/components/ui/following-pointer";
 import { Spotlight } from "@/components/ui/spotlight";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import GridPattern from "@/components/magicui/grid-pattern";
+import { ArrowRightIcon } from "lucide-react";
+import Image from "next/image";
 
 const World = dynamic(() => import("../../ui/globe").then((m) => m.World), {
     ssr: false,
@@ -41,23 +44,23 @@ export default function GlobeExperience() {
         pointSize: 4,
         globeColor: "#2b0d19", // A dark muted red to blend with black background
         showAtmosphere: true,
-        atmosphereColor: "#FFFFFF", // Softer red for atmosphere, slightly muted
-        atmosphereAltitude: 0.1,
+        atmosphereColor: "#ff8c82", // Softer red for atmosphere, slightly muted
+        atmosphereAltitude: 0.2,
         emissive: "#2b0d12", // Darker shade of red for a subtler glow
-        emissiveIntensity: 0.1,
-        shininess: 0.8,
+        emissiveIntensity: 0.2,
+        shininess: 0.9,
         polygonColor: "rgba(232,58,74,0.7)", // Muted translucent red
         ambientLight: "#444444", // Dark gray ambient light to enhance contrast
         directionalLeftLight: "#ffffff",
-        directionalTopLight: "#ff9999", // Softer red light from the top
+        directionalTopLight: "#ffffff", // Softer red light from the top
         pointLight: "#ffb3b3", // Subtle warm red light
-        arcTime: 1000,
-        arcLength: 0.9,
+        arcTime: 2000,
+        arcLength: 0.3,
         rings: 1,
-        maxRings: 3,
+        maxRings: 5,
         initialPosition: { lat: 22.3193, lng: 114.1694 },
         autoRotate: true,
-        autoRotateSpeed: 0.5,
+        autoRotateSpeed: 0.3,
     };
 
     const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
@@ -426,6 +429,8 @@ export default function GlobeExperience() {
 
     return (
         <div className="md:py-20 h-screen md:h-auto relative w-full">
+
+
             <Spotlight
                 className="-top-40 left-0 md:left-60 md:-top-20"
                 fill="red"
@@ -440,6 +445,14 @@ export default function GlobeExperience() {
                     "-top-40 skew-y-12 inset-x-0 inset-y-[-30%] h-[150%]"
                 )}
             />
+
+            <IntroButton url="/dns">
+
+                <Image src="/icons/india_flag.png" alt="DNS" width={20} height={20} className="inline mr-2" />
+                Free & Private Indian DNS
+
+            </IntroButton>
+
             <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4 flex flex-col-reverse md:flex-row items-center justify-between">
                 {/* Left: Text Section */}
                 <motion.div
@@ -474,8 +487,9 @@ export default function GlobeExperience() {
                         as="button"
                         className="dark:bg-black bg-white flex items-center space-x-2"
                     >
-                        <span className="text-sm font-medium tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                        <span className="flex items-center gap-2 text-sm font-medium tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
                             View Services
+                            <ArrowRightIcon className="w-6 h-6" />
                         </span>
                     </HoverBorderGradient>
                 </motion.div>
