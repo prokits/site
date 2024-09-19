@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export type IPData = {
     status?: string;
@@ -20,15 +20,19 @@ export type IPData = {
 function useIP(mode: "fast" | "full" = "fast") {
     const [ipData, setIP] = useState<IPData | null>(null);
 
-    if (mode === "fast") {
-        fetch("https://api.ipify.org?format=json")
-            .then((res) => res.json())
-            .then((data) => setIP({ query: data.ip }));
-    } else {
-        fetch("http://ip-api.com/json/")
-            .then((res) => res.json())
-            .then((data) => setIP(data));
-    }
+    useEffect(() => {
+        if (mode === "fast") {
+            fetch("https://api.ipify.org?format=json")
+                .then((res) => res.json())
+                .then((data) => setIP({ query: data.ip }));
+        } else {
+            fetch("http://ip-api.com/json/")
+                .then((res) => res.json())
+                .then((data) => setIP(data));
+        }
+    }, []);
+
+
 
     return ipData;
 }
