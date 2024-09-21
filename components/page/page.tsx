@@ -60,7 +60,7 @@ export function PageFooter({ className, children }: { className?: string, childr
 export function Paragraph({ className, children }: { className?: string, children: React.ReactNode }) {
     return (
         <p className={cn(
-            "py-2 max-w-[72ch]",
+            "py-4 max-w-[72ch]",
             className
         )}>
             {children}

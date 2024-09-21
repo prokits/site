@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import { Page, PageContent, PageSubtitle, PageTitle, Paragraph } from "@/components/page/page";
 import Callout from "@/components/ui/callout";
 import { LinkPreview } from "@/components/ui/link-preview";
 
+export const metadata: Metadata = {
+    title: "About | Prokits",
+    description: "About Prokits",
+}
+
 export default function AboutPage() {
+
     return (
         <Page>
             <PageTitle>About</PageTitle>
