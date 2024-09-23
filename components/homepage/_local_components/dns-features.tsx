@@ -1,8 +1,8 @@
 import { CardSpotlight } from "@/components/ui/card-spotlight";
-
-export function DNSFeatures() {
+import { cn } from "@/lib/utils";
+export function DNSFeatures({ className }: { className?: string }) {
     return (
-        <CardSpotlight>
+        <CardSpotlight className={cn("w-full", className)}>
             <p className="text-xl font-bold relative z-20 mt-2 text-white">
                 Why Prokits DNS?
             </p>
@@ -14,10 +14,8 @@ export function DNSFeatures() {
                     <Step title="Server in Pune, Noida, and Mumbai." />
                     <Step title="No logging policy." />
                     <Step title="DNSSEC supported." />
-
                 </ul>
             </div>
-
             <p className="text-neutral-300 mt-4 relative z-20 text-sm">
                 We believe in a free and open internet. We also believe that privacy is a right. We won't sell your data, ever.
             </p>

@@ -1,20 +1,24 @@
 import HyperText from "../magicui/hyper-text";
 import { DNSEncryptedCard } from "./_local_components/dns-encrypted-card";
 import { DNSFeatures } from "./_local_components/dns-features";
-import { ISPHoverEffect } from "./_local_components/isp-hover-effect";
-function DNSExplanation() {
+import { ISPHoverEffect } from "./_local_components/isp-hover-effect"
+import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { cn } from "@/lib/utils";
+function DNSExplanation({ className }: { className?: string }) {
     return (
-        <div className="border border-white/[0.2] p-4 px-8 w-full rounded-md bg-black flex justify-between items-center">
-            <div className="max-w-md my-10 leading-6">
-                <p className="mb-4">
-                    Your ISP can see every site and app you use, even if they&apos;re encrypted. Some providers even sell this data, or use it to target you with ads.
-                </p>
-                <p>
-                    Prokits DNS prevents anyone from snooping on you by encrypting more of the traffic leaving your device. We believe privacy is a right. We won&apos;t sell your data, ever.
-                </p>
+        <CardSpotlight className={cn("w-full", className)}>
+            <div className="flex flex-col md:flex-row justify-between items-center">
+                <div className="leading-6 text-white relative z-20 md:w-1/2">
+                    <p className="mb-4">
+                        Your ISP can see every site and app you use, even if they&apos;re encrypted. Some providers even sell this data, or use it to target you with ads.
+                    </p>
+                    <p>
+                        Prokits DNS prevents anyone from snooping on you by encrypting more of the traffic leaving your device. We believe privacy is a right. We won&apos;t sell your data, ever.
+                    </p>
+                </div>
+                <ISPHoverEffect className="mt-10 md:mt-0" />
             </div>
-            <ISPHoverEffect />
-        </div>
+        </CardSpotlight>
     )
 
 }
@@ -38,8 +42,8 @@ export default function DNSSection() {
                 <HyperText text="Fast. Free. Private." className="text-[#BCBCBC] text-4xl md:text-6xl font-bold tracking-tighter  mt-4 mb-10" />
             </div>
 
-            <div className="flex flex-wrap justify-center items-center gap-2 mt-6">
-                <div className="flex flex-col justify-center items-center gap-4 mt-6">
+            <div className="flex flex-wrap md:flex-nowrap justify-center items-stretch gap-4 mt-6">
+                <div className="flex flex-col justify-center items-end gap-4 w-full md:w-1/2">
                     <DNSExplanation />
                     <DNSFeatures />
                 </div>

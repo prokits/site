@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { cn } from "@/lib/utils";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 
 const isps = [
@@ -26,9 +27,9 @@ const isps = [
     },
 ];
 
-export function ISPHoverEffect() {
+export function ISPHoverEffect({ className }: { className?: string }) {
     return (
-        <div className="flex flex-row items-center justify-center mx-auto">
+        <div className={cn("flex flex-row items-center justify-center mx-auto", className)}>
             <AnimatedTooltip items={isps} />
         </div>
     );
