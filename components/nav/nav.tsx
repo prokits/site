@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 export default function NavBar() {
     const pathname = usePathname()
@@ -13,7 +14,11 @@ export default function NavBar() {
 
     return (
         <div className={`border-t-4 border-red_branding ${background}`}>
-            <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 py-2 max-w-7xl mx-auto ">
+            <motion.header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 py-2 max-w-7xl mx-auto "
+                initial={{ opacity: 0, }}
+                animate={{ opacity: 1, }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
                 <Sheet>
                     <SheetTrigger asChild>
                         <Button variant="outline" size="icon" className="lg:hidden">
@@ -44,7 +49,7 @@ export default function NavBar() {
                 </Sheet>
                 <Link href="/" className="mr-6 hidden lg:flex" prefetch={false}>
                     <Image src="/logo/logo_dark.svg" alt="Prokits" width={150} height={100} />
-                    <span className="sr-only">Acme Inc</span>
+                    <span className="sr-only">Prokits Digital</span>
                 </Link>
                 <nav className="ml-auto hidden lg:flex gap-6">
                     <Link
@@ -88,7 +93,7 @@ export default function NavBar() {
                         Docs
                     </Link>
                 </nav>
-            </header>
+            </motion.header>
         </div>
     )
 }

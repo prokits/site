@@ -1,15 +1,23 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
-import { ChevronRightIcon } from "lucide-react";
+import { ChevronRightIcon, Scale } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function SpeedUploads() {
+    const variants = {
+        init: { x: 0, scale: 1 },
+        anim: { x: 2, scale: 1.05, transition: { type: "spring", stiffness: 300 } },
+    };
+
     return (
         <>
             <div className="bg-black">
                 <div className="container py-24 lg:py-32">
                     {/* Announcement Banner */}
-                    <div className="flex justify-center">
+                    <motion.div initial="init" whileHover="anim" className="flex justify-center">
                         <Link
                             className="inline-flex items-center gap-x-2 border text-sm p-1 ps-3 rounded-full transition"
                             href="https://github.com/tushgaurav/speedyuploads"
@@ -17,7 +25,7 @@ export default function SpeedUploads() {
                         >
                             SpeedyUploads is GPL 2.0 licensed.
                             <span className="py-1.5 px-2.5 inline-flex justify-center items-center gap-x-2 rounded-full bg-muted-foreground/15 font-semibold text-sm">
-                                <svg
+                                <motion.svg
                                     className="flex-shrink-0 w-4 h-4"
                                     xmlns="http://www.w3.org/2000/svg"
                                     width={24}
@@ -28,12 +36,13 @@ export default function SpeedUploads() {
                                     strokeWidth={2}
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
+                                    variants={variants}
                                 >
                                     <path d="m9 18 6-6-6-6" />
-                                </svg>
+                                </motion.svg>
                             </span>
                         </Link>
-                    </div>
+                    </motion.div>
                     {/* End Announcement Banner */}
                     {/* Title */}
                     <div className="mt-5 max-w-2xl text-center mx-auto flex justify-center items-center flex-col">

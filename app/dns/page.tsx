@@ -35,12 +35,12 @@ export default function DNSPage() {
             <PageTitle>
                 DNS.Prokits
                 <br />
-                <h2 className="text-2xl font-bold my-2">
+                <h2 className="text-lg font-bold mt-4">
                     <Cover>lightning fast</Cover> DNS for Every Indian
                 </h2>
             </PageTitle>
 
-            <PageContent className="mt-12">
+            <PageContent className="mt-10">
                 <h1>DNS.Prokits is a Free and Fast Public DNS Server for Indian users.</h1>
                 <Paragraph>
                     DNS.Prokits offers a free service that replaces your default ISP's DNS configuration.
