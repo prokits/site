@@ -21,7 +21,7 @@ export default function MapDisplay({ latitude, longitude, zoom }: { latitude: nu
     const geojson: FeatureCollection = {
         type: 'FeatureCollection',
         features: [
-            { type: 'Feature', geometry: { type: 'Point', coordinates: [latitude, longitude] }, properties: {} }
+            { type: 'Feature', geometry: { type: 'Point', coordinates: [longitude, latitude] }, properties: {} }
         ]
     };
 
@@ -33,8 +33,9 @@ export default function MapDisplay({ latitude, longitude, zoom }: { latitude: nu
                 latitude: latitude,
                 zoom: zoom || 14
             }}
-            style={{ width: 600, height: 400 }}
+            style={{ width: "100%", maxWidth: "800px", height: 400 }}
             mapStyle="mapbox://styles/mapbox/dark-v11"
+        // mapStyle="mapbox://styles/mapbox/navigation-night-v1"
         >
             <Source id="my-data" type="geojson" data={geojson}>
                 <Layer {...layerStyle} />
