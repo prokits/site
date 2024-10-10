@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { allBlogs, Blog } from "contentlayer/generated"
+import { allBlogs, allAuthors } from "contentlayer/generated"
 
 import { Mdx } from "@/components/mdx"
 import { absoluteUrl } from "@/lib/utils"
@@ -18,12 +18,10 @@ interface BlogPageProps {
 }
 
 async function getBlogFromParams(slug: string) {
-    const blog = allBlogs.find((blog) => blog.slug === slug)
-
+    const blog = allBlogs.find((blog) => blog.slug === "/blog/" + slug)
     if (!blog) {
         notFound()
     }
-
     return blog
 }
 
@@ -77,12 +75,17 @@ export async function generateStaticParams(): Promise<
     }))
 }
 
-export default async function PostPage({ params }: BlogPageProps) {
+export default async function BlogPage({ params }: BlogPageProps) {
     const blog = await getBlogFromParams(params.slug)
 
     if (!blog) {
         notFound()
     }
+
+    const authors = blog.authors.map((author) =>
+        allAuthors.find(({ slug }) => slug === `/authors/${author}`)
+
+    )
 
     return (
         <article className="container relative max-w-3xl py-6 lg:py-10">
@@ -109,6 +112,34 @@ export default async function PostPage({ params }: BlogPageProps) {
                     {blog.title}
                 </h1>
 
+                {authors?.length ? (
+                    <div className="mt-4 flex space-x-4">
+                        {authors.map((author) =>
+                            author ? (
+                                <Link
+                                    key={author._id}
+                                    href={author.website}
+                                    className="flex items-center space-x-2 text-sm"
+                                    target="_blank"
+                                >
+                                    <Image
+                                        src={author.avatar}
+                                        alt={author.title}
+                                        width={42}
+                                        height={42}
+                                        className="rounded-full bg-white"
+                                    />
+                                    <div className="flex-1 text-left leading-tight">
+                                        <p className="font-medium">{author.title}</p>
+                                        <p className="text-[12px] text-muted-foreground">
+                                            @{author.twitter}
+                                        </p>
+                                    </div>
+                                </Link>
+                            ) : null
+                        )}
+                    </div>
+                ) : null}
             </div>
             {blog.image && (
                 <Image
@@ -121,9 +152,9 @@ export default async function PostPage({ params }: BlogPageProps) {
                 />
             )}
             <Mdx code={blog.body.code} />
-            <hr className="mt-12" />
+            <hr className="mt-12 border-gray-400" />
             <div className="flex justify-center py-6 lg:py-10">
-                <Link href="/blog" className={cn(buttonVariants({ variant: "ghost" }))}>
+                <Link href="/blog" className={cn(buttonVariants({ variant: "ghost" }), "hover:bg-gray-900")}>
                     <Icons.chevronLeft className="mr-2 h-4 w-4" />
                     See all posts
                 </Link>

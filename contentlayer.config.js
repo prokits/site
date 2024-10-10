@@ -4,9 +4,21 @@ import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
+/** @type {import('contentlayer/source-files').ComputedFields} */
+const computedFields = {
+  slug: {
+    type: "string",
+    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+  },
+  slugAsParams: {
+    type: "string",
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+  },
+};
+
 export const Blog = defineDocumentType(() => ({
   name: "Blog",
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `blog/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
@@ -14,22 +26,50 @@ export const Blog = defineDocumentType(() => ({
     published: { type: "boolean", default: true },
     description: { type: "string", required: true },
     image: { type: "string", required: true },
-  },
-  computedFields: {
-    slug: {
-      type: "string",
-      resolve: (blog) => `${blog._raw.flattenedPath}`,
+    authors: {
+      // Reference types are not embedded.
+      // Until this is fixed, we can use a simple list.
+      // type: "reference",
+      // of: Author,
+      type: "list",
+      of: { type: "string" },
+      required: true,
     },
-    slugAsParams: {
+  },
+  computedFields,
+}));
+
+export const Author = defineDocumentType(() => ({
+  name: "Author",
+  filePathPattern: `authors/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
       type: "string",
-      resolve: (blog) => blog._raw.flattenedPath.split("/").slice(1).join("/"),
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+    avatar: {
+      type: "string",
+      required: true,
+    },
+    twitter: {
+      type: "string",
+      required: true,
+    },
+    website: {
+      type: "string",
+      required: true,
     },
   },
+  computedFields,
 }));
 
 export default makeSource({
-  contentDirPath: "blogs",
-  documentTypes: [Blog],
+  contentDirPath: "./content",
+  documentTypes: [Blog, Author],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

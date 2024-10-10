@@ -24,11 +24,11 @@ export default async function BlogPage() {
                         Blog
                     </h1>
                     <p className="text-xl text-muted-foreground">
-                        A blog built using Contentlayer. Posts are written in MDX.
+                        The latest news, tips, and insights from the team at Prokits.
                     </p>
                 </div>
             </div>
-            <hr className="my-8" />
+            <hr className="my-8 border-gray-600" />
             {blogs?.length ? (
                 <div className="grid gap-10 sm:grid-cols-2">
                     {blogs.map((blog, index) => (
@@ -55,7 +55,7 @@ export default async function BlogPage() {
                                     {formatDate(blog.date)}
                                 </p>
                             )}
-                            <Link href={"blog/" + blog.slug} className="absolute inset-0">
+                            <Link href={blog.slug} className="absolute inset-0">
                                 <span className="sr-only">View Article</span>
                             </Link>
                         </article>

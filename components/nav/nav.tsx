@@ -31,17 +31,18 @@ export default function NavBar() {
                             <Image src="/logo/logo_dark.svg" alt="Prokits" width={100} height={100} />
                             <span className="sr-only">Acme Inc</span>
                         </Link>
-                        <div className="grid gap-2 py-6">
-                            <Link href="/dns" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+                        <div className="grid gap-2 py-6 ">
+                            <Link href="/blog" className="flex w-full items-center py-2 font-semibold" prefetch={false}>
+                                BLOGS
+                            </Link>
+                            <Link href="/dns" className="flex w-full items-center py-2 font-semibold" prefetch={false}>
                                 DNS
                             </Link>
-                            <Link href="#" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
-                                TOR
-                            </Link>
-                            <Link href="/about" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+
+                            <Link href="/about" className="flex w-full items-center py-2 font-semibold" prefetch={false}>
                                 About
                             </Link>
-                            <Link href="/docs" className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
+                            <Link href="/docs" className="flex w-full items-center py-2 font-semibold" prefetch={false}>
                                 Docs
                             </Link>
                         </div>
@@ -53,30 +54,30 @@ export default function NavBar() {
                 </Link>
                 <nav className="ml-auto hidden lg:flex gap-6">
                     <Link
+                        href="blog"
+                        prefetch={false}
+                        className={cn(
+                            "py-2",
+                            pathname == "/blog" ? "text-red_branding border-b-4 border-red_branding pb-0 font-bold" : "text-white"
+                        )}
+                    >
+                        Blog
+                    </Link>
+                    <Link
                         href="/dns"
                         prefetch={false}
                         className={cn(
-                            "py-2 text-lg",
+                            "py-2",
                             pathname == "/dns" ? "text-red_branding border-b-4 border-red_branding pb-0 font-bold" : "text-white"
                         )}
                     >
                         DNS
                     </Link>
                     <Link
-                        href=""
-                        prefetch={false}
-                        className={cn(
-                            "py-2 text-lg",
-                            pathname == "/tor" ? "text-red_branding border-b-4 border-red_branding pb-0 font-bold" : "text-white"
-                        )}
-                    >
-                        TOR
-                    </Link>
-                    <Link
                         href="/about"
                         prefetch={false}
                         className={cn(
-                            "py-2 text-lg",
+                            "py-2",
                             pathname == "/about" ? "text-red_branding border-b-4 border-red_branding pb-0 font-bold" : "text-white"
                         )}
                     >
@@ -86,7 +87,7 @@ export default function NavBar() {
                         href="/docs"
                         prefetch={false}
                         className={cn(
-                            "py-2 text-lg",
+                            "py-2",
                             pathname == "/docs" ? "text-red_branding border-b-4 border-red_branding pb-0 font-bold" : "text-white"
                         )}
                     >
