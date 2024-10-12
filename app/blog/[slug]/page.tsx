@@ -82,10 +82,13 @@ export default async function BlogPage({ params }: BlogPageProps) {
         notFound()
     }
 
+    console.log(blog.authors)
     const authors = blog.authors.map((author) =>
-        allAuthors.find(({ slug }) => slug === `/authors/${author}`)
 
+        allAuthors.find(({ slug }) => slug === `/authors/${author.replace(/(\r\n|\n|\r)/gm, "")}`)
     )
+
+    console.log(authors)
 
     return (
         <article className="container relative max-w-3xl py-6 lg:py-10">
@@ -93,7 +96,8 @@ export default async function BlogPage({ params }: BlogPageProps) {
                 href="/blog"
                 className={cn(
                     buttonVariants({ variant: "ghost" }),
-                    "absolute left-[-200px] top-14 hidden xl:inline-flex"
+                    "absolute left-[-200px] top-14 hidden xl:inline-flex",
+                    "hover:bg-gray-900"
                 )}
             >
                 <Icons.chevronLeft className="mr-2 h-4 w-4" />

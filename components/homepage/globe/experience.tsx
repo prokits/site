@@ -446,12 +446,25 @@ export default function GlobeExperience() {
                 )}
             />
 
-            <IntroButton url="/dns">
 
-                <Image src="/icons/india_flag.png" alt="DNS" width={20} height={20} className="inline mr-2" />
-                Free & Private Indian DNS
-
-            </IntroButton>
+            <motion.div
+                initial={{
+                    opacity: 0,
+                    y: 20,
+                }}
+                animate={{
+                    opacity: 1,
+                    y: 0,
+                }}
+                transition={{
+                    duration: 1,
+                }}
+            >
+                <IntroButton url="/dns">
+                    <Image src="/icons/india_flag.png" alt="DNS" width={20} height={20} className="inline mr-2" />
+                    Free & Private Indian DNS
+                </IntroButton>
+            </motion.div>
 
             <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4 flex flex-col-reverse md:flex-row items-center justify-between">
                 {/* Left: Text Section */}
