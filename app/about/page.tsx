@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Page, PageContent, PageSubtitle, PageTitle, Paragraph } from "@/components/page/page";
 import Callout from "@/components/ui/callout";
 import { LinkPreview } from "@/components/ui/link-preview";
+import Image from "next/image";
 
 export const metadata: Metadata = {
     title: "About | Prokits",
@@ -47,6 +48,7 @@ export default function AboutPage() {
 
                 <Paragraph>
                     <PageSubtitle>The Team</PageSubtitle>
+                    <Image src="/images/about/team.png" alt="Tushar Gaurav" width={800} height={400} className="my-4 rounded-md" />
                     While I refer to Prokits as "we," currently there's just one person involved—me, Tushar Gaurav.
                     Talking in the third person feels odd, so let me speak directly:
                     I'm a software developer at <LinkPreview url="https://orangewood.co" className="underline">Orangewood Labs</LinkPreview> specializing in web technologies.
