@@ -1,0 +1,69 @@
+---
+title: Why You Should Set Up Your Own DNS Servers
+description: The benefits of setting up your own DNS servers and how it complements public DNS services.
+date: "2024-10-12"
+image: /images/blog/blog-post-3.jpg
+authors:
+  - tushgaurav
+---
+
+<Callout>
+  Setting up your own DNS server can be a game changer for security, privacy,
+  and speed. While public DNS services like ours are convenient and powerful,
+  having your own DNS server can provide you with even more control over your
+  internet experience.
+</Callout>
+
+When it comes to navigating the internet, your DNS (Domain Name System) plays a crucial role. It's the system responsible for translating human-readable domain names like `example.com` into IP addresses that computers use to identify each other. This process happens in the background of every internet request, and it's why having a fast, secure, and reliable DNS service is critical.
+
+## Why should you set up your own DNS server?
+
+While public DNS services, like the one we offer, are designed to provide excellent performance and security for users around the world, there are several advantages to setting up your own DNS server. Here are some reasons why you might consider doing this:
+
+### 1. **Enhanced Privacy**
+
+By using a public DNS service, you're trusting that service with your browsing data, including the websites you visit. Even though our service is designed to protect your privacy, setting up your own DNS server takes that control into your own hands.
+
+You decide how long data is retained and what logs are kept (if any). This can be particularly beneficial for businesses or individuals who are highly concerned about privacy.
+
+### 2. **Better Security Control**
+
+DNS servers are often the target of cyberattacks, such as DNS spoofing or DDoS attacks. Running your own DNS server allows you to implement custom security measures and tighten control over how your DNS traffic is handled. You can configure additional layers of security like DNS over HTTPS (DoH) or DNS over TLS (DoT) for encryption, reducing vulnerabilities.
+
+> Having control over the DNS infrastructure can also help block malicious domains or ads directly at the DNS level, adding an extra layer of protection to your network.
+
+### 3. **Customization**
+
+With a public DNS service, you’re bound by the policies and configurations of the provider. By running your own DNS server, you can tailor the server’s configuration to suit your specific needs. For example, you can:
+
+- Block specific websites or categories
+- Create your own local domain names for internal use
+- Set up DNS caching and optimize performance for your network's usage patterns
+
+This kind of customization can improve the efficiency of your network, whether at home or within an organization.
+
+### 4. **Speed and Performance**
+
+While many public DNS servers, including ours, prioritize speed, having a self-hosted DNS server can further reduce latency, especially for frequently accessed domains. By setting up DNS caching, the server can store responses locally, so recurring requests are handled faster, without needing to reach out to external servers.
+
+This is particularly important if you’re running a large network or if you're hosting multiple internal services that require quick lookups.
+
+### 5. **Redundancy and Availability**
+
+Relying solely on a public DNS service can expose your network to outages if that service experiences downtime (although rare with robust services like ours). By running your own DNS server as a fallback, you ensure redundancy. You can still use a public DNS service as your primary DNS resolver, but having your own secondary server gives you peace of mind and availability during interruptions.
+
+## How does a self-hosted DNS complement public DNS services?
+
+It’s important to note that self-hosted DNS servers don’t need to completely replace public DNS services. In fact, many organizations and individuals use a combination of both. Here’s how they can work together:
+
+- **Primary/Secondary Setup**: You can configure your network to use a public DNS as your primary server for fast global resolution, while using your own DNS server for local caching, internal domains, and security policies.
+- **Security Gateway**: Your self-hosted DNS can act as a security layer between your devices and external DNS services. This adds an extra filter for blocking malicious content or ads.
+- **Custom Policies**: By leveraging the flexibility of your own DNS, you can route certain traffic through your public DNS service while managing sensitive or internal requests in-house.
+
+## Conclusion: The Best of Both Worlds
+
+Using our free public DNS service gives you an incredible amount of reliability, performance, and privacy features out of the box. However, setting up your own DNS server can provide additional layers of control, security, and customization. Whether you choose to use your self-hosted DNS server exclusively or as a complement to our service, having that flexibility ensures you're in full control of your internet experience.
+
+For more detailed steps on how to get started with setting up your own DNS server, you can check out our guide [here](/guides/setup-dns-server).
+
+---
