@@ -429,8 +429,6 @@ export default function GlobeExperience() {
 
     return (
         <div className="md:py-20 h-screen md:h-auto relative w-full">
-
-
             <Spotlight
                 className="-top-40 left-0 md:left-60 md:-top-20"
                 fill="red"
