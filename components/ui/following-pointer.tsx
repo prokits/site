@@ -139,7 +139,7 @@ export const FollowPointer = ({
         {title || (
           <div className="flex items-center gap-1">
             <SiInternetcomputer className="text-white text-lg" />
-            <span>{ipData?.query}</span>
+            <span>{ipData?.ipAddress}</span>
           </div>
         )}
       </motion.div>
