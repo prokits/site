@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import Link from "next/link";
 
-export async function IntroButton({ children, url, className }: { children: React.ReactNode, url: string, className?: string }) {
+export function IntroButton({ children, url, className }: { children: React.ReactNode, url: string, className?: string }) {
     return (
         <div className={cn("z-10 flex items-center justify-center", className)}>
             <Link href={url}>
