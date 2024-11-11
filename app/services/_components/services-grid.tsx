@@ -1,0 +1,64 @@
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { cn } from "@/lib/utils";
+import { Shell } from "lucide-react";
+
+type ServicesItem = {
+    title: string;
+    description: string;
+    header: React.ReactNode;
+    className: string;
+    icon: React.ReactNode;
+};
+
+export default function ServicesGrid({ className }: { className?: string }) {
+    return (
+        <BentoGrid className={
+            cn("max-w-4xl mx-auto md:auto-rows-[20rem]", className)
+        }>
+            {items.map((item, i) => (
+                <BentoGridItem
+                    key={i}
+                    title={item.title}
+                    description={item.description}
+                    header={item.header}
+                    className={item.className}
+                    icon={item.icon}
+                />
+            ))}
+        </BentoGrid>
+    );
+}
+const Skeleton = () => (
+    <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black"></div>
+);
+const items = [
+    {
+        title: "Prokits DNS",
+        description: "DNS.Prokits is a Free and Fast Public DNS Server for Indian users.",
+        header: <Skeleton />,
+        className: "md:col-span-2",
+        icon: <Shell className="h-4 w-4 text-neutral-500" />,
+    },
+    {
+        title: "Web Design",
+        description: "We design and develop websites that are beautiful and functional.",
+        header: <Skeleton />,
+        className: "md:col-span-1",
+        icon: <Shell className="h-4 w-4 text-neutral-500" />,
+    },
+    {
+        title: "Network Security",
+        description: "Protect your network from cyber threats with our security solutions.",
+        header: <Skeleton />,
+        className: "md:col-span-1",
+        icon: <Shell className="h-4 w-4 text-neutral-500" />,
+    },
+    {
+        title: "Custom Software",
+        description:
+            "We build custom software solutions that are tailored to your business needs.",
+        header: <Skeleton />,
+        className: "md:col-span-2",
+        icon: <Shell className="h-4 w-4 text-neutral-500" />,
+    },
+];

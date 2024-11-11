@@ -11,6 +11,7 @@ import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import GridPattern from "@/components/magicui/grid-pattern";
 import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const World = dynamic(() => import("../../ui/globe").then((m) => m.World), {
     ssr: false,
@@ -493,16 +494,19 @@ export default function GlobeExperience() {
                         </span>
                     </ShimmerButton> */}
 
-                    <HoverBorderGradient
-                        containerClassName="rounded-full"
-                        as="button"
-                        className="dark:bg-black bg-white flex items-center space-x-2"
-                    >
-                        <span className="flex items-center gap-2 text-sm font-medium tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-                            View Services
-                            <ArrowRightIcon className="w-6 h-6" />
-                        </span>
-                    </HoverBorderGradient>
+
+                    <Link href="/services">
+                        <HoverBorderGradient
+                            containerClassName="rounded-full"
+                            as="button"
+                            className="dark:bg-black bg-white flex items-center space-x-2"
+                        >
+                            <span className="flex items-center gap-2 text-sm font-medium tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                                View Services
+                                <ArrowRightIcon className="w-6 h-6" />
+                            </span>
+                        </HoverBorderGradient>
+                    </Link>
                 </motion.div>
 
                 {/* Right/Top: Globe Section */}
