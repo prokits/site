@@ -1,7 +1,7 @@
+import BlogsPreview from "@/components/homepage/blogs";
 import DNSSection from "@/components/homepage/dns-section";
 import GlobeExperience from "@/components/homepage/globe/experience";
 import SpeedUploads from "@/components/homepage/speedyuploads";
-import WebDesignSection from "@/components/homepage/webdesign-section";
 import CurvedSeperator from "@/components/ui/curved-seperator";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
         </svg>
         <DNSSection />
 
-        <WebDesignSection />
+        <BlogsPreview />
 
         <CurvedSeperator flipped={true}>
           <SpeedUploads />
