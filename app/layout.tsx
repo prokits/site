@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PlausibleProvider from 'next-plausible'
 import { siteConfig } from "@/config/site"
 import localFont from "next/font/local";
 import "./globals.css";
@@ -16,7 +17,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: `${siteConfig.name} | Infrastructure for the connected world`,
     template: `%s | ${siteConfig.name}`,
@@ -70,6 +71,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <PlausibleProvider domain="prokits.digital" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
       >
