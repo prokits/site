@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import PlausibleProvider from 'next-plausible'
 import { siteConfig } from "@/config/site"
+import { CSPostHogProvider } from './providers'
 import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "@/components/nav/nav";
@@ -71,16 +71,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <PlausibleProvider domain="prokits.digital" />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
-      >
-        <NavBar />
-        {children}
-        <Footer />
-      </body>
+      <CSPostHogProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
+        >
+          <NavBar />
+          {children}
+          <Footer />
+        </body>
+      </CSPostHogProvider>
     </html>
   );
 }

@@ -1,5 +1,6 @@
 "use client"
 
+import posthog from "posthog-js"
 import { Button } from "@/components/ui/button";
 import { ChevronRightIcon, Scale } from "lucide-react";
 import Image from "next/image";
@@ -61,7 +62,11 @@ export default function SpeedUploads() {
                     {/* Buttons */}
                     <div className="mt-8 gap-3 flex justify-center">
                         <Link href="https://speedyuploads.com/" target="_blank">
-                            <Button size={"lg"} className="rounded-full ">Get Started</Button>
+                            <Button size={"lg"} className="rounded-full " onClick={
+                                () => {
+                                    posthog.capture('speedyuploads get started pressed', { property: 'yes' })
+                                }
+                            }>Get Started</Button>
                         </Link>
                     </div>
                     {/* End Buttons */}
