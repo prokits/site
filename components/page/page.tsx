@@ -5,7 +5,7 @@ export function Page({ className, children }: { className?: string, children: Re
         <section className={cn(
             "max-w-7xl mx-auto",
             "p-4 md:p-6",
-
+            'min-h-screen',
             className
         )}>
             {children}

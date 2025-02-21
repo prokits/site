@@ -481,7 +481,7 @@ export default function GlobeExperience() {
                     }}
                     className="z-50 flex-1 flex flex-col justify-center px-4 md:p-0"
                 >
-                    <h2 className="text-xl md:text-6xl font-bold text-black dark:text-white md:-mr-10">
+                    <h2 className="text-4xl md:text-6xl font-bold text-black dark:text-white md:-mr-10">
                         Infrastructure for the
                         connected world.
                     </h2>
@@ -510,12 +510,12 @@ export default function GlobeExperience() {
                 </motion.div>
 
                 {/* Right/Top: Globe Section */}
-                <div className="relative flex-1  md:h-full md:mb-0 w-full">
+                <div className="relative hidden sm:block flex-1 md:h-full md:mb-0 w-full">
                     {/* Gradient Layer */}
                     <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
 
                     {/* Globe Component */}
-                    <div className="absolute w-full bottom-0 right-0 h-72 md:h-full z-10">
+                    <div className="absolute w-full bottom-0 right-0 h-60 md:h-full z-10">
                         <FollowerPointerCard className="w-full h-full">
                             <World data={sampleArcs} globeConfig={globeConfig} />
                         </FollowerPointerCard>

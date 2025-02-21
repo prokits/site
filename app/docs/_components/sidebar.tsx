@@ -33,9 +33,6 @@ const Sidebar: React.FC = () => {
                 <h1 className="text-xl font-bold mb-4">Documentation</h1>
             </Link>
             {docGroups.map((group, index) => (
-
-
-
                 <div key={index} className="mb-4">
                     <h2 className="text-md font-semibold mb-2">{group.title}</h2>
                     <ul>
