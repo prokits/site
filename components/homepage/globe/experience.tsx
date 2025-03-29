@@ -64,7 +64,7 @@ export default function GlobeExperience() {
         autoRotateSpeed: 0.3,
     };
 
-    const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+    const colors = ["#ffffff", "#f5f5f5", "#e5e5e5"];
     const sampleArcs = [
         {
             order: 1,

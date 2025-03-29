@@ -20,8 +20,8 @@ export default function PrivacyPolicyPage() {
             <PageTitle>
                 Privacy Policy
             </PageTitle>
-            <h1 className="mt-6 text-2xl md:text-4xl font-bold text-zinc-400 text-center">yes, we're complying to this GDPR thing.</h1>
-            <PageContent className="mt-10">
+            <h1 className="text-2xl md:text-4xl font-bold text-zinc-400 p-6 py-2">yes, we're complying to this GDPR thing.</h1>
+            <PageContent className="">
                 <Paragraph>
                     Here's your superfluous notice letting you know that we're not selling your info, you're free to use our service without worry, yada yada.
                     We're <span className="font-bold hover:cursor-not-allowed">"GDPR compliant."</span>
