@@ -29,6 +29,7 @@
     "framer-motion": "^11.5.4",
     "lucide-react": "^0.439.0",
     "mapbox-gl": "^3.6.0",
+    "motion": "^12.23.12",
     "next": "14.2.9",
     "next-contentlayer": "^0.3.4",
     "posthog-js": "^1.181.0",
