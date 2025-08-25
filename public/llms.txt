@@ -1,0 +1,31 @@
+# Prokits Digital
+
+Prokits Digital is a software development company that specializes in building custom software solutions for businesses.
+We are the one's who build nodebench, the open source benchmarking and hardware platform for single board computers.
+
+## Services
+
+- [Prokits DNS](https://dns.prokits.digital): DNS.Prokits offers a free service that replaces your default ISP's DNS configuration. We prioritize speed and privacy without implementing any blocking services. This means we don't block any ads or trackers, allowing you full access to the internet.
+
+- Web Development: We design and develop websites that are beautiful and functional.
+
+- Software Development: We develop custom software solutions for businesses.
+
+## Prokits DNS
+
+Prokits DNS is a Free and Fast Public DNS Server for Indian users.
+Prokits DNS offers a free service that replaces your default ISP's DNS configuration. We prioritize speed and privacy without implementing any blocking services. This means we don't block any ads or trackers, allowing you full access to the internet.
+
+Our public recursive DNS resolver is available at dns.prokits.digital and is open for anyone to use. Currently, we don't log any data, ensuring maximum privacy for our users. While we may consider logging some completely anonymous data in the future, we want to assure our users that data containing IP addresses will never be logged in our system. Our service has been designed with GDPR compliance in mind, prioritizing user privacy and data protection.
+
+At Prokits DNS, we don't block any DNS records. Our philosophy is to provide unrestricted access to the internet. We believe in a transparent and all-accessible web, allowing users to make their own choices about content.
+If you desire content filtering, we recommend setting up a local DNS server such as AdGuard Home or Pi-hole on your network. You can then configure Prokits DNS as an upstream server, giving you the best of both worlds: our fast, reliable service combined with your preferred filtering options.
+
+## About Prokits
+Prokits is a soon-to-be incorporated software company, while we have our other goals and aspirations, making privacy accessible to everyone was one of them. If you were to compare India’s current scenario, you would see that the government heavily censors the internet. We strongly believe that this is against the fundamental right to freedom of speech and expression. We are here to provide a solution to this problem.
+
+## Our Mission
+Our mission is to provide privacy to everyone. We believe that privacy is a fundamental right and should be accessible to everyone. We are here to provide a solution to the problem of internet censorship and surveillance.
+
+## Docs
+- [Basics of DNS](https://www.prokits.digital/docs/dns): Learn the basics of DNS and how it works.
