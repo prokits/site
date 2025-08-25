@@ -1,22 +1,47 @@
 "use client";
 
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 export default function NavBar() {
     const pathname = usePathname()
-    const background = pathname == "/" ? "bg-black" : "bg-gray-900"
+    const [isScrolled, setIsScrolled] = useState(false)
+    const isHome = pathname === "/"
+
+    useEffect(() => {
+        if (isHome) {
+            setIsScrolled(false)
+            return
+        }
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 8)
+        }
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        handleScroll()
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [isHome])
+
+    const baseBackground = pathname == "/" ? "bg-black" : "bg-zinc-900"
+    const scrolledBackground = pathname == "/" ? "bg-black/60" : "bg-zinc-900/90"
 
     return (
-        <div className={`border-t-4 border-red_branding ${background}`}>
-            <motion.header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 py-2 max-w-7xl mx-auto "
+        <div className={cn(
+            isHome
+                ? cn("border-t-4 border-red_branding", baseBackground)
+                : cn(
+                    "sticky top-0 z-50 border-t-4 border-red_branding transition-all duration-300",
+                    isScrolled ? cn("backdrop-blur-md shadow-sm", scrolledBackground) : baseBackground
+                )
+        )}>
+            <motion.header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 py-2 max-w-7xl mx-auto"
                 initial={{ opacity: 0, }}
-                animate={{ opacity: 1, }}
+                animate={{ opacity: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
                 <Sheet>
