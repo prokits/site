@@ -515,7 +515,7 @@ export default function GlobeExperience() {
                     <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
 
                     {/* Globe Component */}
-                    <div className="absolute w-full bottom-0 right-0 h-60 md:h-full z-10">
+                    <div className="absolute w-full bottom-0 right-0 h-20 md:h-full z-10">
                         <FollowerPointerCard className="w-full h-full">
                             <World data={sampleArcs} globeConfig={globeConfig} />
                         </FollowerPointerCard>

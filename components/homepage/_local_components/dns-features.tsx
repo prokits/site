@@ -7,11 +7,11 @@ export function DNSFeatures({ className }: { className?: string }) {
                 Why Prokits DNS?
             </p>
             <div className="text-neutral-200 mt-4 relative z-20">
-                Prokits DNS is a free, fast, and private DNS service. It is
+                Prokits DNS is a free, fast, and private DNS service.
                 <ul className="list-none  mt-2">
-                    <Step title="Cached with top 100000 websites." />
+                    <Step title="Cached with top 1,00,000 websites." />
                     <Step title="DoH and DoT supported." />
-                    <Step title="Server in Pune, Noida, and Mumbai." />
+                    <Step title="Server in Noida, Mumbai, and Pune." />
                     <Step title="No logging policy." />
                     <Step title="DNSSEC supported." />
                 </ul>

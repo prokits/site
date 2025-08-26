@@ -5,6 +5,16 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
+function FooterLink({ href, children }: { href: string, children: React.ReactNode }) {
+  return (
+    <li className="text-xs">
+    <Link href={href} target="_blank" className="hover:underline">
+      {children}
+    </Link>
+    </li>
+  );
+}
+
 export default function Footer() {
   const pathname = usePathname();
   const background = pathname == "/" ? "bg-black" : "bg-zinc-900";
@@ -27,56 +37,31 @@ export default function Footer() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div className="grid grid-cols-1  gap-6 sm:gap-6 sm:grid-cols-3">
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Resources
+                Guides
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <Link href="/docs" className="hover:underline">
-                    DNS Setup Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    TOR Relays
-                  </Link>
-                </li>
+              <ul className="text-gray-500 dark:text-gray-400">
+                <FooterLink href="/docs">DNS Guide</FooterLink>
               </ul>
             </div>
+
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                TOOLS
+                Tools
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <Link href="/myip" className="hover:underline ">
-                    My IP Address
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Calculator
-                  </Link>
-                </li>
+              <ul className="text-gray-500 dark:text-gray-400">
+                <FooterLink href="/myip">IP Address</FooterLink>
               </ul>
             </div>
+
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Legal
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <Link href="/privacy-policy" className="hover:underline">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
+              <ul className="text-gray-500 dark:text-gray-400">
+                <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
               </ul>
             </div>
           </div>
@@ -85,7 +70,7 @@ export default function Footer() {
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
 
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span className="text-sm text-zinc-500 sm:text-center dark:text-zinc-500">
             © {new Date().getFullYear()}{" "}
             <a href="https://prokits.digital/" className="hover:underline">
               Prokits Digital
@@ -96,7 +81,7 @@ export default function Footer() {
             <Link
               href="https://discord.gg/KDZ54ZKXdt"
               target="_blank"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white ms-5"
             >
               <svg
                 className="w-4 h-4"
@@ -112,7 +97,7 @@ export default function Footer() {
             <Link
               href="https://x.com/HiProkits"
               target="_blank"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white ms-5"
             >
               <svg
                 className="w-4 h-4"
@@ -132,7 +117,7 @@ export default function Footer() {
             <Link
               href="https://github.com/Prokits"
               target="_blank"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white ms-5"
             >
               <svg
                 className="w-4 h-4"
@@ -152,7 +137,7 @@ export default function Footer() {
             <Link
               href="https://www.reddit.com/r/prokits/"
               target="_blank"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white ms-5"
             >
               {/* Reddit logo */}
               <svg

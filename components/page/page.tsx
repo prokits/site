@@ -4,7 +4,7 @@ export function Page({ className, children }: { className?: string, children: Re
     return (
         <section className={cn(
             "max-w-7xl mx-auto",
-            "p-4 md:p-6",
+            "p-4 md:p-6 mt-4 md:mt-8",
             'min-h-screen',
             className
         )}>
@@ -16,7 +16,7 @@ export function Page({ className, children }: { className?: string, children: Re
 export function PageTitle({ className, children }: { className?: string, children: React.ReactNode }) {
     return (
         <h1 className={cn(
-            "h-20 w-full px-4 md:px-6 py-2 text-3xl font-semibold",
+            "h-20 w-full px-4 md:px-6 py-2 pb-4 text-3xl font-semibold",
             className
         )}>
             {children}
